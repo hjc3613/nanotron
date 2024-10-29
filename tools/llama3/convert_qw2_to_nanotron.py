@@ -78,8 +78,8 @@ def main(args):
 
     # Set Nanotron LlamaConfig
     nanotron_llama_config = LlamaConfigNanotron(
-        bos_token_id=hf_config.bos_token_id,
-        eos_token_id=hf_config.eos_token_id,
+        # bos_token_id=hf_config.bos_token_id,
+        # eos_token_id=hf_config.eos_token_id,
         hidden_act=hf_config.hidden_act,
         hidden_size=hf_config.hidden_size,
         initializer_range=hf_config.initializer_range,
@@ -90,7 +90,7 @@ def main(args):
         num_hidden_layers=hf_config.num_hidden_layers,
         num_key_value_heads=hf_config.num_key_value_heads,
         pad_token_id=None,
-        pretraining_tp=hf_config.pretraining_tp,
+        # pretraining_tp=hf_config.pretraining_tp,
         rms_norm_eps=hf_config.rms_norm_eps,
         rope_scaling=hf_config.rope_scaling,
         rope_theta=hf_config.rope_theta,
