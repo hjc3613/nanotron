@@ -46,7 +46,7 @@ model:
   ddp_bucket_cap_mb: 25
   dtype: bfloat16
   init_method:
-    path: /fl-ift/med/hujunchao/models/qwen1.5-110-chat-nanotron
+    path: /fl-ift/med/hujunchao/models/qwen2.5-72b-instruct-nanotron/
   make_vocab_size_divisible_by: 1
   model_config:
     bos_token_id: 1
@@ -54,7 +54,7 @@ model:
     hidden_act: silu
     hidden_size: 8192
     initializer_range: 0.02
-    intermediate_size: 49152
+    intermediate_size: 29568
     is_bitnet_config: true
     max_position_embeddings: 32768
     num_attention_heads: 64
@@ -87,7 +87,7 @@ optimizer:
   weight_decay: 0.01
   zero_stage: 0
 parallelism:
-  dp: 8
+  dp: 1
   expert_parallel_size: 1
   pp: 8
   pp_engine: 1f1b
@@ -97,7 +97,7 @@ parallelism:
 profiler: null
 tokenizer:
   tokenizer_max_length: null
-  tokenizer_name_or_path: /fl-ift/med/hujunchao/models/qwen1.5-110-chat-nanotron
+  tokenizer_name_or_path: /fl-ift/med/hujunchao/models/qwen2.5-72b-instruct-nanotron/
   tokenizer_revision: null
 tokens:
   batch_accumulation_per_replica: 4

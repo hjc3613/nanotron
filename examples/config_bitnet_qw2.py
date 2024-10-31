@@ -42,7 +42,7 @@ from nanotron.logging import human_format
 #     use_cache=True,
 #     vocab_size=256,
 # )
-hf_config = AutoConfig.from_pretrained('/fl-ift/med/common/Qwen1.5-110B-Chat')
+hf_config = AutoConfig.from_pretrained('/fl-ift/med/common/Qwen2.5-72B-Instruct')
 # model_config = LlamaBitNetConfig(
 #     # Config for a tiny 1.58bit model model with 1.62M parameters
 #     bos_token_id=1,
@@ -115,7 +115,7 @@ optimizer = OptimizerArgs(
 )
 
 parallelism = ParallelismArgs(
-    dp=8,
+    dp=1,
     pp=8,
     tp=1,
     pp_engine="1f1b",
@@ -151,8 +151,8 @@ config = Config(
     general=GeneralArgs(project="debug", run="tiny_llama_%date_%jobid", seed=seed),
     checkpoints=CheckpointsArgs(checkpoints_path=checkpoints_path, checkpoint_interval=100),
     parallelism=parallelism,
-    model=ModelArgs(init_method=ExistingCheckpointInit(path='/fl-ift/med/hujunchao/models/qwen1.5-110-chat-nanotron'),model_config=model_config),
-    tokenizer=TokenizerArgs("/fl-ift/med/hujunchao/models/qwen1.5-110-chat-nanotron"),
+    model=ModelArgs(init_method=ExistingCheckpointInit(path='/fl-ift/med/hujunchao/models/qwen2.5-72b-instruct-nanotron/'),model_config=model_config),
+    tokenizer=TokenizerArgs("/fl-ift/med/hujunchao/models/qwen2.5-72b-instruct-nanotron/"),
     optimizer=optimizer,
     logging=LoggingArgs(),
     tokens=tokens,
